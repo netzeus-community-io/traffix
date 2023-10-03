@@ -1,0 +1,9 @@
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <h5 class="alert-heading">Error</h5>
+    {% for error in errors %}
+    <ul>
+        <li><b>{{ error.loc[0] }}</b> - {{ error.msg }}</li>
+    </ul>
+    {% endfor %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

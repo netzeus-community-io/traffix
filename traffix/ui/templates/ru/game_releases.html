@@ -1,0 +1,78 @@
+{% extends "layouts/base.html" %}
+{% set active_page = "ru_game_releases" %}
+
+{% block content %}
+<form class="row row-cols-sm-auto g-3 justify-content-end pb-3">
+    <div class="col-12">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" aria-label="Previous">
+                  <span aria-hidden="true">
+                    <i class="fa-light fa-angle-left"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">
+                    <i class="fa-light fa-angle-right"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </div>
+    <div class="col-12">
+        <select class="form-select" id="example-select-1">
+            <option selected>10</option>
+            <option value="frontend">25</option>
+            <option value="backend">50</option>
+            <option value="fullstack">100</option>
+        </select>
+    </div>
+</form>
+
+<div class="row row-cols-1 row-cols-sm-3 g-4">
+    {% for release in releases %}
+    <div class="col">
+        <div class="card specific-w-300 w-sm-100 mw-100 h-100 mx-auto">
+            <img src="{{ release.image_url }}" class="card-img-top img-fluid img-thumbnail rounded" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ release.name }}</h5>
+                <div class="d-flex flex-inline">
+                    <div class="col-6">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et.</p>
+                    </div>
+                    <div class="vr mx-3"></div>
+                    <div class="col-6">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Estimated Size</th>
+                                    <td>{{ (release.estimated_size / 1024 / 1024 / 1024) | round(method='ceil') }} GB</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Release Date</th>
+                                    <td>{{ release.release_date }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Categories</th>
+                                    <td colspan="2">{{ release.categories if release.categories }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p class="card-text">
+                    <small class="text-body-secondary">Last updated {{ release.updated_at if release.updated_at else release.created_at}}</small>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

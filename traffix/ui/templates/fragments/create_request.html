@@ -1,0 +1,34 @@
+<form hx-post="{{ url_for('ru_create_request') }}" hx-target="#alerts">
+    <div class="mb-3">
+        <label class="form-label" for="name">Name</label>
+        <input  type="text" class="form-control" id="name" name="name"  placeholder="Exactly as presented by the distributor / publisher (eg. Call of Duty: Warzone)">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="estimated_size">Estimated Size (in Bytes)</label>
+        <input type="number" class="form-control" id="estimated_size" name="estimated_size"  placeholder="Estimated Size of Release/Update">
+    </div>
+    <fieldset class="row mb-3">
+        <legend class="col-form-label mb-1 mb-sm-0 col-sm-3 pt-0">Type</legend>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="ru_type" id="ru_release" value="release" checked>
+                <label class="form-check-label" for="ru_release">Release</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="ru_type" id="ru_update" value="update">
+                <label class="form-check-label" for="ru_update">Update</label>
+            </div>
+        </div>
+    </fieldset>
+    <div class="mb-3">
+        <label class="form-label" for="release_date">Release Date</label>
+        <input type="datetime-local" class="form-control" id="release_date" name="release_date" >
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="image_url">Image URL</label>
+        <input type="text" class="form-control" id="image_url" name="image_url"  placeholder="Eg. https://upload.wikimedia.org/wikipedia/en/0/01/Call_of_Duty_Warzone_cover.png">
+        </div>
+    <div class="d-flex align-items-center">
+        <button type="submit" class="btn btn-primary ms-auto">Send</button>
+    </div>
+</form>

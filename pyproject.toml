@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "traffix"
+version = "0.1.0"
+description = "Basic API to provide insights for major bandwidth spike events on the internet for ISPs. For example new game release or updates."
+authors = ["Brandon Spendlove <brandon.spendlove@netzeus.io>"]
+license = "Apache License Version 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.103.2"
+jinja2 = "^3.1.2"
+uvicorn = "^0.23.2"
+bson = "^0.5.10"
+pydantic-settings = "^2.0.3"
+motor = "^3.3.1"
+redis = "^5.0.1"
+loguru = "^0.7.2"
+python-jose = "^3.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+pytest = "^7.4.2"
+pytest-asyncio = "^0.21.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

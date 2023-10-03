@@ -1,0 +1,18 @@
+{% extends "layouts/base.html" %}
+{% set active_page = "ru_create_request" %}
+
+{% block content %}
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <div class="card w-50">
+            <div class="card-body">
+            <h3 class="card-title">Create Request</h3>
+            {% include 'fragments/create_request.html' %}
+            </div>
+            <form hx-post="/ru/test" hx-target="#alerts">
+                <button type="submit" class="btn btn-primary ms-auto">test</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

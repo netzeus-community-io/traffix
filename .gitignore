@@ -1,3 +1,8 @@
+# Traffix
+mongo/
+MyCertificate.crt
+MyKey.key
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
