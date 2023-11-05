@@ -1,8 +1,8 @@
-from pydantic_settings import BaseSettings
 from pydantic import RedisDsn, MongoDsn
+from traffix_sdk.config import Settings
 
 
-class Settings(BaseSettings):
+class Settings(Settings):
     # Default API Path
     API_PATH_V1: str = "/v1"
 
@@ -14,12 +14,6 @@ class Settings(BaseSettings):
 
     # Default redis Dsn
     REDIS_URI: RedisDsn = "redis://localhost:6379"
-
-    # Default MongoDB Dsn
-    MONGODB_URI: MongoDsn = "mongodb://localhost:27017"
-
-    # Default MongoDB Database
-    MONGODB_DATABASE: str = "traffix-dev"
 
     # Default JWT Expire Timer
     JWT_EXPIRE: int = 60 * 24 * 3  # 3 Days

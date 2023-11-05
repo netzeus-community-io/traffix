@@ -2,19 +2,32 @@ version: "3.8"
 
 services:
   db:
-    container_name: traffix_db
-    image: mongo
+    image: postgres
     restart: always
-    env_file:
-      - .env
+    environment:
+      POSTGRES_DB: traffix
+      POSTGRES_PASSWORD: traffix
     volumes:
-      - ./mongo:/data/db
+      - db:/var/lib/postgresql
     ports:
-     - 27017:27017
+      - 5432:5432
 
-  redis:
-    container_name: traffix_cache
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: traffix+dev@netzeus.io
+      PGADMIN_DEFAULT_PASSWORD: traffix
+    ports:
+      - 8000:80
+    volumes:
+        - pgadmin:/root/.pgadmin
+
+  cache:
     image: redis
     ports:
       - 6379:6379
     restart: always
+
+volumes:
+  pgadmin:
+  db:

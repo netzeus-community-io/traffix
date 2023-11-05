@@ -1,29 +1,25 @@
 from typing import Any
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from sqlmodel.ext.asyncio.session import AsyncSession
 from loguru import logger
 import json
 
 from traffix.config import settings
-from traffix.dependencies import get_db, get_redis
 from traffix.initial_data import data
-from traffix.models import RUCreate
-from traffix import crud
+from traffix_sdk.dependencies.database import get_db
 
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="traffix/ui/static"), name="static")
-
-templates = Jinja2Templates(directory="traffix/ui/templates")
-
 
 @app.on_event("startup")
-async def startup_event():
+async def startup_event(db: AsyncSession = Depends(get_db)):
     # Import initial data
-    db = await get_db()
+
+    """
 
     for game in data:
         try:
@@ -47,17 +43,8 @@ async def startup_event():
     all_updates = await crud.ru.get_multi(db=db, limit=None, query={"ru_type": "update"})
     data_to_encode = json.dumps([update.model_dump_json() for update in all_updates])
     await redis.set(name="ru_updates", value=data_to_encode)
+    """
 
-
-@app.get("/", response_class=HTMLResponse)
-async def home(request: Request) -> Any:
-    return templates.TemplateResponse("index.html", {"request": request})
-
-
-# View controller
-from traffix import views
-
-app.include_router(views.views_router)
 
 # API Controller
 from traffix.api import v1

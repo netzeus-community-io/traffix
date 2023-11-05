@@ -12,13 +12,9 @@ from traffix_sdk.dependencies.user import get_active_superuser
 
 router = APIRouter(dependencies=[Depends(get_active_superuser)])
 
-import logging
+# @router.get("/", response_model=List[])
 
-logging.basicConfig()
-logger = logging.getLogger("sqlalchemy.engine")
-logger.setLevel(logging.DEBUG)
-
-
+'''
 @router.post("/", response_model=TraffixReleaseRead)
 async def create_release(db: DatabaseDep, release_obj_in: TraffixReleaseCreate):
     """Creates a Release in the database."""
@@ -90,3 +86,4 @@ async def delete_release(db: DatabaseDep, id: int):
 
     await crud.traffix_release.remove(db=db, id=id)
     return release_exist
+'''

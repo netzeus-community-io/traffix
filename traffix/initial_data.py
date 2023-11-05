@@ -53,13 +53,13 @@ data = [
         "estimated_size": 30000000000,
         "ru_type": "update",
         "release_date": "2023-08-27T00:00:00Z",
-        "image_url": "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/mwii/MWII-S06-ANNOUNCEMENT-TOUT.jpg"
+        "image_url": "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/mwii/MWII-S06-ANNOUNCEMENT-TOUT.jpg",
     },
     {
         "name": "Grand Theft Auto: V - Criminal Enterprises",
         "estimated_size": 2830000000,
         "ru_type": "update",
         "release_date": "2022-07-22T00:00:00Z",
-        "image_url": "https://static.wikia.nocookie.net/gtawiki/images/d/de/TheCriminalEnterprises-GTAOe-Artwork.jpg"
-    }
+        "image_url": "https://static.wikia.nocookie.net/gtawiki/images/d/de/TheCriminalEnterprises-GTAOe-Artwork.jpg",
+    },
 ]

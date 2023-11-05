@@ -36,6 +36,7 @@ async def ru_game_releases(request: Request, redis: Redis = Depends(get_redis)):
         name="ru/game_releases.html", context={"request": request, "releases": releases}
     )
 
+
 @router.get("/game_updates")
 async def ru_game_updates(request: Request, redis: Redis = Depends(get_redis)):
     data = await redis.get("ru_updates")
@@ -47,6 +48,7 @@ async def ru_game_updates(request: Request, redis: Redis = Depends(get_redis)):
     return templates.TemplateResponse(
         name="ru/game_updates.html", context={"request": request, "updates": updates}
     )
+
 
 @router.post("/create_request")
 async def ru_create_request(

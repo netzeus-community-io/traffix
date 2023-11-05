@@ -7,12 +7,11 @@ This project is split into different phases of development to set achievable goa
 
 Popular game releases/updates and generic updates (eg. Microsoft Windows or Apple iOS) will be added to the database manually. Users can request to enter details that are not already available on the API but these will be reviewed manually by contributers (or the community itself). This is to focus purely on the basic UI development and workflow before attempting to streamline multiple sources of data and automate the collection of various APIs. In this phase I expect the following key features to be implemented:
 
-- Basic UI Frontend
 - Basic API
 - API rate limiting
 - Database implementation
 - Potentially Redis but this may come at Phase 2 unless the project takes off before phase 2
-- Monolithic based application
+- Mostly monolithic based application but with room to grow into microservices if it becomes popular
 
 ![Phase 1 Diagram example](./docs/imgs/traffix_phase_1.png)
 
@@ -24,7 +23,7 @@ Popular game releases/updates and generic updates (eg. Microsoft Windows or Appl
 
 ## Phase 3
 - Streamline of data input from APIs (other services that are not just game digital distribution platforms) like OS updates/releases, new films/series, and maybe more...
-- More cool stuff?
+- More cool stuff? Maybe a public UI/Frontend
 
 
 ## Some notes to format/rearrange in the future
